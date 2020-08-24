@@ -4,7 +4,7 @@ Um sistema de informação para controlar o processo de criação animal e o pla
 ## Requisitos:
 
 1. ### Análise Orientada a Objetos II
-__Um sistema de informação para controlar o processo de criação animal e o planejamento de plantio das diferentes culturas da fazenda.__ 
+__Diagramas.__ 
 - [ ] Diagrama Use Cases (Casos de Uso).
 - [ ] Diagrama Classes.
 - [ ] Diagrama de Máquina de Estados para a classe “Plantio”, definindo estados relevantes para os objetos da classe.
