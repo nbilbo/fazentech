@@ -11,7 +11,8 @@ __Diagramas.__
 - [ ] Diagrama de Atividades correspondente a um caso de uso de sua preferência.
 - [ ] Diagrama de Sequência correspondente a um caso de uso (diferente do escolhido no item anterior).
 
- ~~local dos arquivos~~
+ [local dos arquivos](https://github.com/nbilbo/fazentech/tree/master/projeto/analise_orientada_objeto)
+ 
 ------------
 2. ### Banco de Dados II
 __Utilizar mysql e o banco  deverá ser chamado de 'fazenda-bd'__.
@@ -27,7 +28,8 @@ tabelas sugeridas:
 - [ ] Comandos (DML) necessários para inserir dados emtodas as tabelas criadas.
 - [ ] Pelomenos quatro consultas utilizando técnicas de consultas avançadas, como junções, funções de agregação e/ou subconsultas.
 
-~~local dos arquivos~~
+[local dos arquivos](https://github.com/nbilbo/fazentech/tree/master/projeto/banco_dados)
+
 ------------
 3. ### Programação para Web I
 __Sistema simples, utilizanando html e css.__
@@ -49,4 +51,5 @@ __Criar uma estrutura de classes e seus respectivos métodos para cadastro e man
 - [ ] código utilizando linguagem java.
 
 ~~local dos arquivos~~
+
 ------------
