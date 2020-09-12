@@ -19,7 +19,7 @@ create table if not exists funcionario(
 create table if not exists contato(
 	idcontato int primary key auto_increment,
 	tipo enum('cel', 'com', 'res') not null,
-	numero char(15) not null unique,
+	numero char(20) not null unique,
 	-- foreign key
 	id_funcionario int
 );
@@ -111,7 +111,7 @@ create  table if not exists varejista(
 create table if not exists contatovarejista(
 	idcontatovarejista int primary key auto_increment,
 	tipo enum('cel', 'com', 'res') not null,
-	numero char(15) not null unique,
+	numero char(20) not null unique,
 	-- foreign key
 	id_varejista int
 );
