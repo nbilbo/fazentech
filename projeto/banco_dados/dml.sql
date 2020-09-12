@@ -82,7 +82,7 @@ values
 insert into ordenha
 (litros, ocorrencia, temperatura_leite, id_animal, id_funcionario)
 values
-(15.00, '2020-05-20 15:05: 21', 7, 1, 1);
+(15.00, '2020-05-20 15:05:21', 7, 1, 1);
 
 #dml remedio
 insert into remedio
