@@ -5,13 +5,14 @@ Um sistema de informação para controlar o processo de criação animal e o pla
 
 1. ### Análise Orientada a Objetos II
 __Diagramas.__ 
-- [ ] Diagrama Use Cases (Casos de Uso).
-- [ ] Diagrama Classes.
-- [ ] Diagrama de Máquina de Estados para a classe “Plantio”, definindo estados relevantes para os objetos da classe.
-- [ ] Diagrama de Atividades correspondente a um caso de uso de sua preferência.
-- [ ] Diagrama de Sequência correspondente a um caso de uso (diferente do escolhido no item anterior).
+- [x] Diagrama Use Cases (Casos de Uso).
+- [x] Diagrama Classes.
+- [x] Diagrama de Máquina de Estados para a classe “Plantio”, definindo estados relevantes para os objetos da classe.
+- [x] Diagrama de Atividades correspondente a um caso de uso de sua preferência.
+- [x] Diagrama de Sequência correspondente a um caso de uso (diferente do escolhido no item anterior).
 
- ~~local dos arquivos~~
+ [local dos arquivos](https://github.com/nbilbo/fazentech/tree/master/projeto/analise_orientada_objeto)
+ 
 ------------
 2. ### Banco de Dados II
 __Utilizar mysql e o banco  deverá ser chamado de 'fazenda-bd'__.
@@ -23,11 +24,12 @@ tabelas sugeridas:
 * EQUIPAMENTO: armazenará os dados dos equipamentos utilizados na fazenda para suas diversas atividades, seja para plantio ou ordenha, por exemplo (ID, nome, tipo, etc). 
 * VAREJISTAS: armazenará informações sobre os parceiros varejistas que compram os produtos da fazenda para revenda. 
 
-- [ ] Comandos (DDL) da criação das tabelas.
-- [ ] Comandos (DML) necessários para inserir dados emtodas as tabelas criadas.
-- [ ] Pelomenos quatro consultas utilizando técnicas de consultas avançadas, como junções, funções de agregação e/ou subconsultas.
+- [x] Comandos (DDL) da criação das tabelas.
+- [x] Comandos (DML) necessários para inserir dados emtodas as tabelas criadas.
+- [x] Pelomenos quatro consultas utilizando técnicas de consultas avançadas, como junções, funções de agregação e/ou subconsultas.
 
-~~local dos arquivos~~
+[local dos arquivos](https://github.com/nbilbo/fazentech/tree/master/projeto/banco_dados)
+
 ------------
 3. ### Programação para Web I
 __Sistema simples, utilizanando html e css.__
@@ -49,4 +51,5 @@ __Criar uma estrutura de classes e seus respectivos métodos para cadastro e man
 - [ ] código utilizando linguagem java.
 
 ~~local dos arquivos~~
+
 ------------
