@@ -1,13 +1,13 @@
 # coding: utf-8
 
-from PyQt5.QtWidgets import QGroupBox, QRadioButton, QHBoxLayout
+from PyQt5.QtWidgets import QGroupBox, QRadioButton, QFormLayout
 
 
 class Genero(QGroupBox):
     def __init__(self, *args, **kwargs):
         super(Genero, self).__init__(*args, **kwargs)
         self.setTitle('Gênero')
-        self.setMaximumHeight(70)
+        #self.setMaximumHeight(70)
 
         # radio buttons
         self.radio_femi = QRadioButton('Femi')
@@ -15,7 +15,7 @@ class Genero(QGroupBox):
         self.radio_masc.setChecked(True)
 
         # layout
-        layout = QHBoxLayout()
+        layout = QFormLayout()
         layout.addWidget(self.radio_masc)
         layout.addWidget(self.radio_femi)
         self.setLayout(layout)
