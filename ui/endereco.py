@@ -10,10 +10,10 @@ CURRENT_DIR = path.dirname(path.abspath(__file__))
 #ESTADOS_JSON = path.join(CURRENT_DIR, 'cidades-estados-brasil-json', 'Estados.json')
 #CIDADES_JSON = path.join(CURRENT_DIR, 'cidades-estados-brasil-json', 'Cidades.json')
 
-with open(path.join(CURRENT_DIR, 'cidades-estados-brasil-json', 'Estados.json'), 'r') as f:
+with open(path.join(CURRENT_DIR, 'cidades-estados-brasil-json', 'Estados.json'), 'r', encoding='utf-8') as f:
     ESTADOS_JSON = load(f)
 
-with open(path.join(CURRENT_DIR, 'cidades-estados-brasil-json', 'Cidades.json'), 'r') as f:
+with open(path.join(CURRENT_DIR, 'cidades-estados-brasil-json', 'Cidades.json'), 'r', encoding='utf-8') as f:
     CIDADES_JSON = load(f)
 
 
