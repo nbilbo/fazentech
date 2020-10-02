@@ -2,7 +2,7 @@
 
 from os import path
 from json import load
-from PyQt5.QtWidgets import QGroupBox, QFormLayout, QComboBox, QLineEdit, QLabel
+from PyQt5.QtWidgets import QGroupBox, QFormLayout, QComboBox, QLineEdit, QTextEdit, QLabel
 
 
 # ---carregar os estados e cidades
@@ -22,9 +22,11 @@ class Endereco(QGroupBox):
     def __init__(self):
         super(Endereco, self).__init__()
         self.setTitle('Endereço')
-        # ---input rua e bairro
+        # ---inputs
         self.input_rua = QLineEdit()
         self.input_bairro = QLineEdit()
+        self.input_numero = QLineEdit()
+        self.input_completo = QTextEdit()
 
         # ---combobox estado (estado inicial)
         self.estado_sigla = 'AC'
@@ -38,10 +40,13 @@ class Endereco(QGroupBox):
 
         # ---layout
         layout = QFormLayout()
+        layout.addRow(QLabel('Número'), self.input_numero)
         layout.addRow(QLabel('Rua'), self.input_rua)
         layout.addRow(QLabel('Bairro'), self.input_bairro)
         layout.addRow(QLabel('Cidade'), self.combobox_cidade)
         layout.addRow(QLabel('Estado'), self.combobox_estado)
+        layout.addRow(QLabel('Complemento'), self.input_completo)
+        
         self.setLayout(layout)
     
     def atualizar_combobox_cidade(self):
@@ -66,9 +71,11 @@ class Endereco(QGroupBox):
         endereco = {}
         endereco['rua'] = self.input_rua.text()
         endereco['bairro'] = self.input_bairro.text()
+        endereco['numero'] = self.input_numero
         endereco['cidade'] = self.combobox_cidade.currentText()
         endereco['estado'] = self.combobox_estado.currentText()
         endereco['sigla'] = self.estado_sigla
+        endereco['complemento'] = self.input_completo.toPlainText()
         return endereco
 
 if __name__ == "__main__":
