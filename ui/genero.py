@@ -16,8 +16,9 @@ class Genero(QGroupBox):
 
         # layout
         layout = QFormLayout()
-        layout.addWidget(self.radio_masc)
-        layout.addWidget(self.radio_femi)
+        #layout.addWidget(self.radio_masc)
+        #layout.addWidget(self.radio_femi)
+        layout.addRow(self.radio_masc, self.radio_femi)
         self.setLayout(layout)
     
     def get_genero(self):
