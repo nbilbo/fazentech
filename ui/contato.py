@@ -96,11 +96,13 @@ class Contato(QGroupBox):
         Remover a linha que está selecionada.
         '''
         indexes = self.tabela.selectedIndexes()
+        
         if indexes:
             row = indexes[0].row()
             del self.modelo.dados[row]
             self.modelo.layoutChanged.emit()
             self.tabela.resizeColumnToContents(0)
+            self.tabela.clearSelection()
 
 
 # over view
