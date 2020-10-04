@@ -87,9 +87,9 @@ class Funcinario(QGroupBox):
         '''
         Filtrar pelo id.
         '''
-        id_value = self.group_id.get_input()
+        id_value = self.group_id.get_input().strip()
 
-        if id_value.strip():
+        if id_value:
             data = [row for row in self.table_model.backup if str(row[0]).startswith(id_value)]
         else:
             data = self.table_model.backup
@@ -102,9 +102,9 @@ class Funcinario(QGroupBox):
         '''
         Filtrar pelo nome.
         '''
-        name_value = self.group_name.get_input()
+        name_value = self.group_name.get_input().strip()
 
-        if name_value.strip():
+        if name_value:
             data = [row for row in self.table_model.backup if str(row[1]).startswith(name_value)]
         else:
             data = self.table_model.backup
@@ -128,8 +128,8 @@ class Funcinario(QGroupBox):
         Retornar um dicionario com os valores dos campos.
         '''
         resultado = {}
-        resultado['id'] = self.group_id.get_input()
-        resultado['name'] = self.group_name.get_input()
+        resultado['id'] = self.group_id.get_input().strip()
+        resultado['name'] = self.group_name.get_input().strip()
         return resultado
     
     def set_data(self, data):
