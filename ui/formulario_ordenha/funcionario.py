@@ -43,7 +43,7 @@ class Model(QAbstractTableModel):
         return len(self._data)
     
     def columnCount(self, index):
-        return len(self._data[0]) if len(self._data) else 0
+        return 2
     
     def headerData(self, section, orientation, role):
         if role == Qt.DisplayRole:
@@ -132,7 +132,7 @@ class Funcinario(QGroupBox):
         resultado['name'] = self.group_name.get_input().strip()
         return resultado
     
-    def set_data(self, data):
+    def set_data(self, data=None):
         '''
         Definir os atributos backup e _data.
         '''
@@ -152,8 +152,8 @@ if __name__ == "__main__":
     programa = QMainWindow()
     programa.setCentralWidget(Funcinario())
     programa.centralWidget().set_data([
-        [1, 'Carolina'],
-        [2, 'Roberto']
+        [1, 'Carlos'],
+        [11, 'Gabriel']
     ])
     programa.setWindowTitle('Testes')
     programa.resize(900, 500)
