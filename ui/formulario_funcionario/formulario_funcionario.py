@@ -12,9 +12,9 @@ from endereco import Endereco
 from contato import Contato
 
 
-class Formulario(QWidget):
+class FormularioFuncionario(QWidget):
     def __init__(self, *args, **kwargs):
-        super(Formulario, self).__init__(*args, **kwargs)
+        super(FormularioFuncionario, self).__init__(*args, **kwargs)
 
         # grupos
         self.grupo_nome = Nome()
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     app.setFont(QFont('Geogia', 12))
 
     programa = Window()
-    programa.setCentralWidget(Formulario())
+    programa.setCentralWidget(FormularioFuncionario())
     programa.show()
     print(programa.centralWidget().get_formulario_funcionario())
     sys.exit(app.exec_())
