@@ -53,3 +53,5 @@ __Criar uma estrutura de classes e seus respectivos métodos para cadastro e man
 ~~local dos arquivos~~
 
 ------------
+
+-favor, não copiar, utilize como referencia.
