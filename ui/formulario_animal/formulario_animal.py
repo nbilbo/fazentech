@@ -22,6 +22,14 @@ class FormularioAnimal(QWidget):
         layout.addWidget(self.ruminacao)
         layout.addWidget(self.inseminacao)
         self.setLayout(layout)
+    
+    def get_formulario_animal(self):
+        resultado = {}
+        resultado['especie'] = self.especie.get_especie()
+        resultado['peso'] = self.peso.get_peso()
+        resultado['ruminacao'] = self.ruminacao.get_ruminacao()
+        resultado['inseminacao'] = self.inseminacao.get_inseminacao()
+        return resultado
 
 
 if __name__ == '__main__':
@@ -38,5 +46,6 @@ if __name__ == '__main__':
     programa.resize(900, 500)
     programa.setWindowTitle('PyQt5 Window')
     programa.show()
+    print(programa.centralWidget().get_formulario_animal())
     
     sys.exit(app.exec_())

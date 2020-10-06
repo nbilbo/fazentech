@@ -103,6 +103,9 @@ class Contato(QGroupBox):
             self.modelo.layoutChanged.emit()
             self.tabela.resizeColumnToContents(0)
             self.tabela.clearSelection()
+    
+    def get_contato(self):
+        return self.modelo.dados
 
 
 # over view

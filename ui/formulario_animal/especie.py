@@ -13,6 +13,9 @@ class Especie(QGroupBox):
         layout = QFormLayout()
         layout.addWidget(self.input_especie)
         self.setLayout(layout)
+    
+    def get_especie(self):
+        return self.input_especie.text()
         
 
 if __name__ == "__main__":

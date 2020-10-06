@@ -71,7 +71,7 @@ class Endereco(QGroupBox):
         endereco = {}
         endereco['rua'] = self.input_rua.text()
         endereco['bairro'] = self.input_bairro.text()
-        endereco['numero'] = self.input_numero
+        endereco['numero'] = self.input_numero.text()
         endereco['cidade'] = self.combobox_cidade.currentText()
         endereco['estado'] = self.combobox_estado.currentText()
         endereco['sigla'] = self.estado_sigla

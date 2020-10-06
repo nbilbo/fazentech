@@ -17,6 +17,9 @@ class Peso(QGroupBox):
         layout = QFormLayout()
         layout.addRow(self.spinbox, self.slider)
         self.setLayout(layout)
+    
+    def get_peso(self):
+        return self.spinbox.value()
 
 
 if __name__ == "__main__":

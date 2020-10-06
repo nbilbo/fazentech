@@ -10,6 +10,9 @@ class Cpf(QGroupBox):
         layout = QFormLayout()
         layout.addWidget(self.input_cpf)
         self.setLayout(layout)
+    
+    def get_cpf(self):
+        return self.input_cpf.text()
 
 
 if __name__ == "__main__":

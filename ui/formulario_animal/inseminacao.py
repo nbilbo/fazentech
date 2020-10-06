@@ -30,11 +30,9 @@ class Inseminacao(QGroupBox):
         '''
         Alterar a visibilidade do calendário.
         '''
-        if self.radio_sim.isChecked():
-            print('abrir calendario')
+        if self.radio_sim.isChecked():    
             self.calendario.setVisible(True)
         else:
-            print('fechar calendario')
             self.calendario.setVisible(False)
 
     def get_inseminacao(self):
