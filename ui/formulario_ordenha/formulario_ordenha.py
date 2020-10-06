@@ -13,6 +13,8 @@ from .ocorrencia import Ocorrencia
 class FormularioOrdenha(QWidget):
     def __init__(self):
         super(FormularioOrdenha, self).__init__()
+        self.setWindowTitle('Formulário ordenha')
+
         self.funcionario = Funcinario()
         self.animal = Animal()
         self.litros = Litros()

@@ -11,6 +11,8 @@ from .inseminacao import Inseminacao
 class FormularioAnimal(QWidget):
     def __init__(self):
         super(FormularioAnimal, self).__init__()
+        self.setWindowTitle('Formulário animal')
+
         self.especie = Especie()
         self.peso = Peso()
         self.ruminacao = Ruminacao()

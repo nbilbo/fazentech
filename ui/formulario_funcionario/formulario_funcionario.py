@@ -15,7 +15,8 @@ from .contato import Contato
 class FormularioFuncionario(QWidget):
     def __init__(self, *args, **kwargs):
         super(FormularioFuncionario, self).__init__(*args, **kwargs)
-
+        self.setWindowTitle('Formulário funcionário')
+        
         # grupos
         self.grupo_nome = Nome()
         self.grupo_genero = Genero()
