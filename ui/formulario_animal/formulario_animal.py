@@ -1,7 +1,7 @@
 # coding: utf-8
 
 
-from PyQt5.QtWidgets import QWidget, QVBoxLayout
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton
 from .especie import Especie
 from .peso import Peso
 from .ruminacao import Ruminacao
@@ -17,12 +17,14 @@ class FormularioAnimal(QWidget):
         self.peso = Peso()
         self.ruminacao = Ruminacao()
         self.inseminacao = Inseminacao()
+        self.botao_confirmar = QPushButton('Confirmar')
 
         layout = QVBoxLayout()
         layout.addWidget(self.especie)
         layout.addWidget(self.peso)
         layout.addWidget(self.ruminacao)
         layout.addWidget(self.inseminacao)
+        layout.addWidget(self.botao_confirmar)
         self.setLayout(layout)
     
     def get_formulario_animal(self):
