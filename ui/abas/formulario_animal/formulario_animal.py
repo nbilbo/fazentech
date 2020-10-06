@@ -1,6 +1,7 @@
 # coding: utf-8
 
 
+from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton
 from .especie import Especie
 from .peso import Peso
@@ -12,6 +13,8 @@ class FormularioAnimal(QWidget):
     def __init__(self):
         super(FormularioAnimal, self).__init__()
         self.setWindowTitle('Formulário animal')
+        self.resize(900, 600)
+        self.setFont(QFont('Georgia', 12))
 
         self.especie = Especie()
         self.peso = Peso()

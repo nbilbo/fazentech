@@ -1,6 +1,7 @@
 # coding: utf-8
 
 
+from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import (QWidget, QFormLayout, QScrollArea, 
                             QPushButton)
 from .funcionario import Funcinario
@@ -14,6 +15,8 @@ class FormularioOrdenha(QWidget):
     def __init__(self):
         super(FormularioOrdenha, self).__init__()
         self.setWindowTitle('Formulário ordenha')
+        self.resize(900, 600)
+        self.setFont(QFont('Georgia', 12))
 
         self.funcionario = Funcinario()
         self.animal = Animal()

@@ -16,6 +16,8 @@ class FormularioFuncionario(QWidget):
     def __init__(self, *args, **kwargs):
         super(FormularioFuncionario, self).__init__(*args, **kwargs)
         self.setWindowTitle('Formulário funcionário')
+        self.resize(900, 600)
+        self.setFont(QFont('Georgia', 12))
         
         # grupos
         self.grupo_nome = Nome()
