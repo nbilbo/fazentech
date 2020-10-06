@@ -2,7 +2,7 @@
 
 from PyQt5.QtCore import Qt, QAbstractTableModel
 from PyQt5.QtWidgets import (QTableView, QGroupBox, QGridLayout, QLineEdit, QComboBox, QPushButton)
-from window import Window
+
 
 
 # ---modelo para usar na tabela
@@ -112,13 +112,13 @@ class Contato(QGroupBox):
 if __name__ == '__main__':
     import sys
     from PyQt5.QtGui import QFont
-    from PyQt5.QtWidgets import QApplication
+    from PyQt5.QtWidgets import QApplication, QMainWindow
 
 
     app = QApplication([])
     app.setFont(QFont('Georgia', 14))
 
-    programa = Window()
+    programa = QMainWindow()
     programa.setCentralWidget(Contato())
     programa.centralWidget().modelo.dados.append(['Celular', '(011) 91234-5678'])
     programa.centralWidget().modelo.layoutChanged.emit()
