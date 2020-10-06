@@ -5,11 +5,11 @@ from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import (QWidget, QLabel, QLineEdit, 
                             QGroupBox, QFormLayout,  QScrollArea, 
                             QVBoxLayout, QPushButton)
-from .genero import Genero
-from .nome import Nome
-from .cpf import Cpf
-from .endereco import Endereco
-from .contato import Contato
+from genero import Genero
+from nome import Nome
+from cpf import Cpf
+from endereco import Endereco
+from contato import Contato
 
 
 class FormularioFuncionario(QWidget):
