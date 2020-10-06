@@ -2,10 +2,10 @@
 
 
 from PyQt5.QtWidgets import QWidget, QVBoxLayout
-from especie import Especie
-from peso import Peso
-from ruminacao import Ruminacao
-from inseminacao import Inseminacao
+from .especie import Especie
+from .peso import Peso
+from .ruminacao import Ruminacao
+from .inseminacao import Inseminacao
 
 
 class FormularioAnimal(QWidget):

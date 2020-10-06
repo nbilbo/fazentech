@@ -3,11 +3,11 @@
 
 from PyQt5.QtWidgets import (QWidget, QFormLayout, QScrollArea, 
                             QPushButton)
-from funcionario import Funcinario
-from animal import Animal
-from litros import Litros
-from temperatura import Temperatura
-from ocorrencia import Ocorrencia
+from .funcionario import Funcinario
+from .animal import Animal
+from .litros import Litros
+from .temperatura import Temperatura
+from .ocorrencia import Ocorrencia
 
 
 class FormularioOrdenha(QWidget):
