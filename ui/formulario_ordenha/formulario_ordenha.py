@@ -53,7 +53,7 @@ class FormularioOrdenha(QWidget):
         resultado['animal'] = self.animal.get_animal()
         resultado['litros'] = self.litros.get_litros()
         resultado['temperatura'] = self.temperatura.get_temperatura()
-        resultado['ocorrencia'] = self.temperatura.get_temperatura()
+        resultado['ocorrencia'] = self.ocorrencia.get_ocorrencia()
 
         return resultado
 
@@ -69,7 +69,7 @@ if __name__ == "__main__":
 
     programa = QMainWindow()
     programa.setCentralWidget(FormularioOrdenha())
-    programa.resize(900, 600)
+    programa.resize(1100, 600)
     programa.setWindowTitle('Testes formulario')
     programa.show()
 
@@ -78,5 +78,6 @@ if __name__ == "__main__":
         [1, 'Andreza'], [11, 'Carlos Bras'], [111, 'Antonio']
     ])
     form.animal.set_data([3, 33, 333])
+    print(form.get_formulario_ordenha())
 
     sys.exit(app.exec_())
