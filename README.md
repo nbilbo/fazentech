@@ -369,7 +369,7 @@ values
 ('antibiotico', '2021-08-20');
 ```
 
-![dec_tratamento]()
+![dec_tratamento](https://github.com/nbilbo/fazentech/blob/master/projeto/banco_dados/imgs/descricoes/desc_tratamento.jpg)
 ```sql
 #dml tratamento
 insert into tratamento
