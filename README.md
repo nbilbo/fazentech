@@ -17,13 +17,15 @@ Um sistema para controlar o processo de criação animal e o planejamento de pla
 2. Banco de dados
     1. [Comandos (DDL)](#ddl_code)
     2. [Comandos (DML) ](#dml_code)
-    3. Comandos (DQL)
+    3. [Comandos (DQL)](#dql_code)
     
 3. Programação para web
-    1. Sistema simples, utilizanando html e css.
+    1. [html](#html_code)
+    2. [css](#css_code)
     
 4. Programação Orientada a Objetos
-    1. Código utilizando linguagem java
+    1. [Código criação das classes](#java_criation)
+    2. [Código instanciação](#java_instantiation)
 
 ------------
 
@@ -41,7 +43,7 @@ Um sistema para controlar o processo de criação animal e o planejamento de pla
 ### <a name="state_diagram"></a>Máquina de Estados
 ![state_diagram](https://github.com/nbilbo/fazentech/blob/master/projeto/analise_orientada_objeto/diagrama_maquina_estado/maquina_estado_plantio.jpg)
 
-### <a name="activity_diagram">Atividade
+### <a name="activity_diagram">Atividades
 ![activity_diagram](https://github.com/nbilbo/fazentech/blob/master/projeto/analise_orientada_objeto/diagrama_atividade/diagrama_atividade_cadastrar_animal.jpg)
 
 ### <a name="sequence_diagram">Sequência
@@ -426,5 +428,131 @@ values
 #dml comercio
 call realizar_comercio(1, 1);
 ```
+
+### <a name="dql_code"></a>DQL
+
+![proj_funcionarios](https://github.com/nbilbo/fazentech/blob/master/projeto/banco_dados/imgs/projecoes/projecao_funcionarios.jpg)
+```sql
+-- visao geral funcionarios
+select 
+	funcionario.idfuncionario , funcionario.nome, funcionario.cpf,
+	funcionario.salario as 'salario_R$', funcionario.contratacao,
+	endereco.rua, endereco.bairro, endereco.cidade, endereco.estado
+
+from funcionario
+inner join endereco on funcionario.idfuncionario = endereco.id_funcionario;
+```
+
+![proj_produtos](https://github.com/nbilbo/fazentech/blob/master/projeto/banco_dados/imgs/projecoes/projecao_produtos.jpg)
+```sql
+-- visão geral dos produtos.
+select 
+	estoque.nome as 'estoque',
+	produto.idproduto, produto.validez,produto.preco as 'R$', 
+	if(produto.vendido, 'sim', 'não') as 'vendido',
+	ifnull(comercio.ocorrencia, '***') as 'ocorrencia',
+	ifnull(varejista.idvarejista, '***') as 'idvarejista',
+	ifnull(varejista.nome, '***') as 'varejista'
+	
+from estoque
+inner join produto on estoque.idestoque = produto.id_estoque
+left join comercio on produto.idproduto = comercio.id_produto
+left join varejista on varejista.idvarejista = comercio.id_varejista
+order by produto.vendido desc, varejista.nome, estoque.nome, produto.preco desc;
+```
+
+![proj_comercios](https://github.com/nbilbo/fazentech/blob/master/projeto/banco_dados/imgs/projecoes/projecao_comercios.jpg)
+```sql
+-- visao geral de comercio
+select
+	varejista.idvarejista, varejista.nome,
+	count(comercio.id_varejista) as 'quantidade_produtos_compradados', 
+	ifnull( sum(produto.preco), 0.00 ) as 'R$'
+
+from varejista
+left join comercio on varejista.idvarejista = comercio.id_varejista
+left join produto on produto.idproduto = comercio.id_produto
+group by varejista.idvarejista;
+```
+
+![proj_ordenhas](https://github.com/nbilbo/fazentech/blob/master/projeto/banco_dados/imgs/projecoes/projecao_ordenhas.jpg)
+```sql
+-- visao geral de ordenha
+select 
+	ordenha.id_animal, ordenha.id_funcionario,
+	funcionario.nome as 'funcionário',
+	ordenha.litros, ordenha.temperatura_leite, ordenha.ocorrencia
+
+from ordenha
+inner join funcionario on funcionario.idfuncionario = ordenha.id_funcionario
+inner join animal on animal.idanimal = ordenha.id_animal
+order by ordenha.id_animal, ordenha.litros desc;
+```
+
+![proj_animais](https://github.com/nbilbo/fazentech/blob/master/projeto/banco_dados/imgs/projecoes/projecao_animais.jpg)
+```sql
+-- visao geral do animal
+select 
+	animal.idanimal, animal.especie, animal.peso as 'peso(Kg)',
+	if(animal.inseminacao, 'Sim', 'Não') as 'inseminação',
+	(select count(*) from ordenha where ordenha.id_animal = animal.idanimal) as 'ordenhas',
+	ifnull(truncate((select avg(ordenha.litros) from ordenha where id_animal = animal.idanimal), 3), '***') as 'média_litros_de_leite',
+	animal.estimativa_parto, animal.ruminacao as 'minutos_de_ruminacao'
+
+from animal
+left join ordenha on animal.idanimal = ordenha.id_animal
+group by animal.idanimal;
+```
+
+------------
+
+## Página web
+
+### <a name="html_code"></a>html
+```html
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8"><meta name="viewpoint" content="inicial-scale=1"><link rel="stylesheet" href="index.css"><title>fazentech</title></head><body> <header class="header"><div class="container"> <nav> <a href="#">fazentech</a> </nav></div> </header> <section class="formulario"><div class="container"><h2>ordenha</h2><form" action=""> <label for="id_animal_ordenha">id animal</label> <input type="number" id="id_animal_ordenha"><label for="id_funcionario_ordenha">id funcionário</label> <input type="number" id="id_funcionario_ordenha"><label for="litro_leite">quantidade de leite (L)</label> <input type="number" id="litro_leite"><label for="horario_ordenha">horário</label> <input type="time" id="horario_ordenha"><button>enviar</button></form></div> </section> <section class="formulario"><div class="container"><h2>animais doentes</h2><form action=""> <label for="id_animal_doente">id animal</label> <input type="number" id="id_animal_doente"><label for="tipo_tratamento">tipo de tratamento</label> <input type="text" id="tipo_tratamento"><label for="descricao_animal_doente">descrição</label><textarea name="" id="descricao_animal_doente" cols="30" rows="10"></textarea><label for="dias_necessarios_doente">quantidade de dias necessários</label> <input type="number" id="dias_necessarios_doente"><button>enviar</button></form></div> </section><footer><div class="container"><p class="copyright">nenhum direito reservado</p></div> </footer></body></html>
+```
+
+### <a name="css_code"></a>css
+```css
+{padding:0;margin:0}.copyright,a,button,h2,input,label,textarea{color:#707070;font-family:Arial,Helvetica,sans-serif;line-height:1em}.copyright,a,button,input,label{font-size:1.2em}a{font-size:1.2em;font-weight:700;text-decoration:none;text-transform:uppercase}h2{font-size:1.6em;font-weight:400;text-transform:uppercase}textarea{font-size:1.125em}.container{background:0 0;border:solid 1px #707070;width:75%;margin:0 auto}.header{width:100%;margin-bottom:3.665%}.header .container{margin-top:2.0833%}.copyright,.header a{display:inline-block;margin-left:1.0416%;padding:2.9687% 0}.formulario{width:100%;margin-bottom:4%}.formulario h2{text-align:center;margin:2.96875% 0}.formulario label,input{display:block;margin-left:1.0416%}.formulario label{margin-bottom:1.09375%}.formulario input{padding:.5208% .1041%;width:47.9166%;margin-bottom:2.0833%}.formulario textarea{margin-left:1.0416%;width:47.9166%;padding-left:.5208%;margin-bottom:2.0833%}.formulario button{background:0 0;margin:2.0833% 0 2.0833% 1.0416%;width:19.2708%;padding:.625% 0;border:solid 1px #707070}footer{width:100%;margin-bottom:2.0833%}.copyright{margin-left:1.0416%}
+```
+
+------------
+
+## <a name="java"></a>Java
+
+### <a name="java_criation"></a>Criação
+![criação_usuario](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/0_usuario.jpg)
+![criação_funcionario](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/1_funcionario.jpg)
+![criação_endereco](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/2_endereco.jpg)
+![criação_contato](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/3_contato.jpg)
+![criação_estoque](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/4_estoque.jpg)
+![criação_produto](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/5_produto.jpg)
+![criação_varejista](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/6_varejista.jpg)
+![criação_contatovarejista](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/7_contatovarejista.jpg)
+![criação_comercio](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/8_comercio.jpg)
+![criação_animal](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/9_animal.jpg)
+![criação_ordenha](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/10_ordenha.jpg)
+![criação_remedio](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/11_remedio.jpg)
+![criação_tratamento](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/12_tratamento.jpg)
+![criação_medicação](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/12_tratamento.jpg)
+![criação_planta](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/14_planta.jpg)
+![criação_plantio](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/15_plantio.jpg)
+![criação_equipamento](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/16_equipamento.jpg)
+![criação_administrador](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/17_administrador.jpg)
+
+### <a name="java_instantiation">Instanciação
+![instanciação](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/instancias/0_contato_endereco_funcioanrio.jpg)
+![instanciação](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/instancias/1_animal_ordenha.jpg)
+![instanciação](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/instancias/2_estoque_produto.jpg)
+![instanciação](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/instancias/3_varejista_contatovarejista_comercio.jpg)
+![instanciação](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/instancias/4_remedio_tratamento_medicacao.jpg)
+![instanciação](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/instancias/5_planta_plantio.jpg)
+![instanciação](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/instancias/6_equipamento.jpg)
+
+<p><a href="https://github.com/nbilbo/fazentech/tree/master/projeto/java/codigo/src" target="_black">Código completo</a></p>
+
+------------
 
 -favor, não copiar, utilize como referencia.
