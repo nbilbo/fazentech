@@ -523,33 +523,1351 @@ group by animal.idanimal;
 ## <a name="java"></a>Java
 
 ### <a name="java_criation"></a>Criação
-![criação_usuario](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/0_usuario.jpg)
-![criação_funcionario](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/1_funcionario.jpg)
-![criação_endereco](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/2_endereco.jpg)
-![criação_contato](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/3_contato.jpg)
-![criação_estoque](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/4_estoque.jpg)
-![criação_produto](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/5_produto.jpg)
-![criação_varejista](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/6_varejista.jpg)
-![criação_contatovarejista](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/7_contatovarejista.jpg)
-![criação_comercio](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/8_comercio.jpg)
-![criação_animal](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/9_animal.jpg)
-![criação_ordenha](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/10_ordenha.jpg)
-![criação_remedio](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/11_remedio.jpg)
-![criação_tratamento](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/12_tratamento.jpg)
-![criação_medicação](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/12_tratamento.jpg)
-![criação_planta](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/14_planta.jpg)
-![criação_plantio](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/15_plantio.jpg)
-![criação_equipamento](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/16_equipamento.jpg)
-![criação_administrador](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/classes/17_administrador.jpg)
+
+```java
+public abstract class Usuario{
+    private int id;
+    private String nome;
+    private String cpf;
+
+    public Usuario(){
+
+    }
+
+    public Usuario(String nome, String cpf){
+        this.nome = nome;
+        this.cpf = cpf;
+    }
+
+    // gettes
+    public int getId(){
+        return this.id;
+    }
+
+    public String getNome(){
+        return this.nome;
+    }
+
+    public String getCpf(){
+        return this.cpf;
+    }
+
+    // setters
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+
+    public void setCpf(String cpf){
+        this.cpf = cpf;
+    }
+}
+```
+
+```java
+public class Funcionario extends Usuario {
+    private java.util.Date contratacao;
+    private float salario;
+    private String status;
+    private Ordenha[] ordenhas;
+    private Plantio[] plantios;
+    private Endereco endereco;
+    private Contato[] contatos;
+    private Tratamento[] tratamentos;
+
+    public Funcionario(){
+
+    }
+
+    public void validar(){
+
+    }
+
+    public void cadastrar(){
+
+    }
+
+    public void demitir(){
+
+    }
+
+    public void atualizar(){
+
+    }
+
+    public void cancelar(){
+
+    }
+
+    public void contratar(){
+
+    }
+
+    public void recuperarFuncionario(){
+
+    }
+
+    // getters
+    public java.util.Date getContratacao(){
+        return this.contratacao;
+    }
+
+    public float getSalario(){
+        return this.salario;
+    }
+
+    public String getStatus(){
+        return this.status;
+    }
+
+    public Ordenha[] getOrdenhas(){
+        return this.ordenhas;
+    }
+
+    public Plantio[] getPlantios(){
+        return this.plantios;
+    }
+
+    public Endereco getEndereco(){
+        return this.endereco;
+    }
+
+    public Contato[] getContatos(){
+        return this.contatos;
+    }
+
+    public Tratamento[] getTratamentos(){
+        return this.tratamentos;
+    }
+
+    // setters
+    public void setContratacao(java.util.Date contratacao){
+        this.contratacao = contratacao;
+    }
+
+    public void setSalario(float salario){
+        this.salario = salario;
+    }
+
+    public void setStatus(String status){
+        this.status = status;
+    }
+
+    public void setOrdenhas(Ordenha ordenhas[]){
+        this.ordenhas = ordenhas;
+    }
+
+    public void setPlantios(Plantio plantios[]){
+        this.plantios = plantios;
+    }
+
+    public void setEndereco(Endereco endereco){
+        this.endereco = endereco;
+    }
+
+    public void setContatos(Contato contatos[]){
+        this.contatos = contatos;
+    }
+
+    public void setTratamentos(Tratamento tratamentos[]){
+        this.tratamentos = tratamentos;
+    }
+}
+```
+
+```java
+public class Endereco {
+    private int id;
+    private String rua;
+    private String bairro;
+    private String cidade;
+    private String estado;
+    private Funcionario funcionario;
+
+    public Endereco(){
+        
+    }
+
+    public void validar(){
+
+    }
+
+    public void cancelar(){
+
+    }
+
+    public void atualizar(){
+
+    }
+
+    public void cadastrar(){
+
+    }
+
+    public void recuperar(){
+        
+    }
+
+    // getters
+    public int getId(){
+        return this.id;
+    }
+
+    public String getRua(){
+        return this.rua;
+    }
+
+    public String getBairro(){
+        return this.bairro;
+    }
+
+    public String getCidade(){
+        return this.cidade;
+    }
+
+    public String getEstado(){
+        return this.estado;
+    }
+
+    public Funcionario getFuncionario(){
+        return this.funcionario;
+    }
+
+    // setters
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setRua(String rua){
+        this.rua = rua;
+    }
+
+    public void setBairro(String bairro){
+        this.bairro = bairro;
+    }
+
+    public void setCidade(String cidade){
+        this.cidade = cidade;
+    }
+
+    public void setEstado(String estado){
+        this.estado = estado;
+    }
+
+    public void setFuncionario(Funcionario funcionario){
+        this.funcionario = funcionario;
+    }
+}
+
+```
+
+```java
+public class Contato {
+    private int id;
+    private String tipo;
+    private String numero;
+    private Funcionario funcionario;
+
+    public Contato(){
+
+    }
+    
+    public Contato(String tipo, String numero, Funcionario funcionario){
+        this.tipo = tipo;
+        this.numero = numero;
+        this.funcionario = funcionario;
+    }
+
+    public Contato(String tipo, String numero){
+        this.tipo = tipo;
+        this.numero = numero;
+    }
+
+    // getters
+    public int getId(){
+        return this.id;
+    }
+
+    public String getTipo(){
+        return this.tipo;
+    }
+
+    public String getNumero(){
+        return this.numero;
+    }
+
+    public Funcionario getFuncionario(){
+        return this.funcionario;
+    }
+
+    // setters
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setTipo(String tipo){
+        this.tipo = tipo;
+    }
+
+    public void setNumero(String numero){
+        this.numero = numero;
+    }
+
+    public void setFuncionario(Funcionario funcionario){
+        this.funcionario = funcionario;
+    }
+}
+```
+
+```java
+public class Estoque {
+    private int id;
+    private int quantidade;
+    private String nome;
+    private Produto produtos[];
+
+    public Estoque(){
+        
+    }
+
+    public void validar(){
+
+    }
+
+    public void cancelar(){
+
+    }
+
+    public void atualizar(){
+
+    }
+
+    public void cadastrar(){
+
+    }
+
+    // getters
+    public Produto[] getProdutos(){
+        return this.produtos;
+    }
+
+    public int getId(){
+        return this.id;
+    }
+
+    public int getQuantidade(){
+        return this.quantidade;
+    }
+
+    public String getNome(){
+        return this.nome;
+    }
+
+    // setters
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setQuantidade(int quantidade){
+        this.quantidade = quantidade;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+
+    public void setProdutos(Produto produtos[]){
+        this.produtos = produtos;
+        this.quantidade += produtos.length;
+    }
+}
+
+```
+
+```java
+public class Produto {
+    private int id;
+    private java.util.Date validez;
+    private float preco;
+    private boolean vendido;
+    private Estoque estoque;
+    private Comercio comercio;
+
+    public Produto(){
+        
+    }
+
+    // getters
+    public int getId(){
+        return this.id;
+    }
+
+    public java.util.Date getValidez(){
+        return this.validez;
+    }
+
+    public float preco(){
+        return this.preco;
+    }
+
+    public boolean isVendido(){
+        return this.vendido;
+    }
+
+    public Estoque getEstoque(){
+        return this.estoque;
+    }
+
+    public Comercio getComercio(){
+        return this.comercio;
+    }
+
+    // setters
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setValidez(java.util.Date validez){
+        this.validez = validez;
+    }
+
+    public void setPreco(float preco){
+        this.preco = preco;
+    }
+
+    public void setVendido(boolean vendido){
+        this.vendido = vendido;
+    }
+
+    public void setEstoque(Estoque estoque){
+        this.estoque = estoque;
+    }
+
+    public void setComercio(Comercio comercio){
+        this.comercio = comercio;
+    }
+}
+```
+
+```java
+public class Varejista extends Usuario {
+    private Comercio[] comercios;
+    private ContatoVarejista[] contatos;
+
+    public Varejista(){
+
+    }
+
+    public void validar(){
+
+    }
+
+    public void atualizar(){
+
+    }
+
+    public void cancelar(){
+
+    }
+
+    public void cadastrar(){
+
+    }
+
+    public void comprarProduto(){
+
+    }
+
+    public void recuperarVarejista(){
+
+    }
+
+    // getters
+    public Comercio[] getComercios(){
+        return this.comercios;
+    }
+
+    public ContatoVarejista[] getContatos(){
+        return this.contatos;
+    }
+
+    // setters
+    public void setComercios(Comercio comercios[]){
+        this.comercios = comercios;
+    }
+
+    public void setContatos(ContatoVarejista contatos[]){
+        this.contatos = contatos;
+    }
+}
+
+```
+
+```java
+public class ContatoVarejista {
+    private int id;
+    private String tipo;
+    private String numero;
+    private Varejista varejista;
+
+    public ContatoVarejista(){
+        
+    }
+
+    public ContatoVarejista(String tipo, String numero){
+        this.tipo = tipo;
+        this.numero = numero;
+    }
+
+    public ContatoVarejista(String tipo, String numero, Varejista varejista){
+        this.tipo = tipo;
+        this.numero = numero;
+        this.varejista = varejista;
+    }
+
+    // getters
+    public int getId(){
+        return this.id;
+    }
+
+    public  String getTipo(){
+        return this.tipo;
+    }
+
+    public String getNumero(){
+        return this.numero;
+    }
+
+    public Varejista getVarejista(){
+        return this.varejista;
+    }
+
+    // setters
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setTipo(String tipo){
+        this.tipo = tipo;
+    }
+
+    public void setNumero(String numero){
+        this.numero = numero;
+    }
+
+    public void setVarejista(Varejista varejista){
+        this.varejista = varejista;
+    }
+}
+```
+
+```java
+public class Comercio {
+    private int id;
+    private java.util.Date ocorrencia;
+    private Varejista varejista;
+    private Produto produto;
+
+    public Comercio(){
+        
+    }
+
+    public void validar(){
+
+    }
+
+    public void cancelar(){
+
+    }
+
+    public void atualizar(){
+
+    }
+
+    public void cadastrar(){
+
+    }
+
+    public void gerarComprovante(){
+        
+    }
+
+    // getters
+    public int getId(){
+        return this.id;
+    }
+
+    public java.util.Date getOcorrencia(){
+        return this.ocorrencia;
+    }
+
+    public Varejista getVarejista(){
+        return this.varejista;
+    }
+
+    public Produto getProduto(){
+        return this.produto;
+    }
+
+    // setters
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setOcorrencia(java.util.Date ocorrencia){
+        this.ocorrencia = ocorrencia;
+    }
+
+    public void setProduto(Produto produto){
+        this.produto = produto;
+    }
+
+    public void setVarejista(Varejista varejista){
+        this.varejista = varejista;
+    }
+}
+```
+
+```java
+public class Animal {
+    private int id;
+    private String especie;
+    private float peso;
+    private int ruminacao;
+    private boolean inseminacao;
+    private java.util.Date estimativaParto;
+    private Tratamento tratamentos[];
+    private Ordenha ordenhas[];
+
+    public Animal(){
+        
+    }
+
+    public void validar(){
+
+    }
+
+    public void cancelar(){
+
+    }
+
+    public void atualizar(){
+
+    }
+
+    public void cadastrar(){
+
+    }
+
+    public void recuperar(){
+
+    }
+
+    public void mediaLitrosLeite(){
+
+    }
+
+    public void mediaTemperaturaLeite(){
+
+    }
+
+    // getters
+    public int getId(){
+        return this.id;
+    }
+
+    public String getEspecie(){
+        return this.especie;
+    }
+
+    public float getPeso(){
+        return this.peso;
+    }
+
+    public int getRuminacao(){
+        return this.ruminacao;
+    }
+
+    public boolean isInseminacao(){
+        return this.inseminacao;
+    }
+
+    public java.util.Date getEstimativaParto(){
+        return this.estimativaParto;
+    }
+
+    public Tratamento[] getTratamentos(){
+        return this.tratamentos;
+    }
+
+    public Ordenha[] getOrdenhas(){
+        return this.ordenhas;
+    }
+
+    // setters
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setEspecie(String especie){
+        this.especie = especie;
+    }
+
+    public void setPeso(float peso){
+        this.peso = peso;
+    }
+
+    public void setRuminacao(int ruminacao){
+        this.ruminacao = ruminacao;
+    }
+
+    public void setInseminacao(boolean inseminacao){
+        this.inseminacao = inseminacao;
+    }
+
+    public void setEstimativaParto(java.util.Date estimativaParto){
+        this.estimativaParto = estimativaParto;
+    }
+
+    public void setTratamentos(Tratamento tratamentos[]){
+        this.tratamentos = tratamentos;
+    }
+
+    public void setOrdenhas(Ordenha ordenhas[]){
+        this.ordenhas = ordenhas;
+    }
+
+}
+```
+
+```java
+public class Ordenha {
+    private int id;
+    private float litros;
+    private float temperaturaLeite;
+    private java.util.Date ocorrencia;
+    private Animal animal;
+    private Funcionario funcionario;
+
+    public Ordenha(){
+        
+    }
+
+    // getters
+    public int getId(){
+        return this.id;
+    }
+
+    public float getLitros(){
+        return this.litros;
+    }
+
+    public float getTemperaturaLeite(){
+        return this.temperaturaLeite;
+    }
+
+    public java.util.Date getOcorrencia(){
+        return this.ocorrencia;
+    }
+
+    public Animal getAnimal(){
+        return this.animal;
+    }
+
+    public Funcionario getFuncionario(){
+        return this.funcionario;
+    }
+
+    // setters
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setLitros(float litros){
+        this.litros = litros;
+    }
+
+    public void setTemperaturaLeite(float temperaturaLeite){
+        this.temperaturaLeite = temperaturaLeite;
+    }
+
+    public void setOcorrencia(java.util.Date ocorrencia){
+        this.ocorrencia = ocorrencia;
+    }
+
+    public void setAnimal(Animal animal){
+        this.animal = animal;
+    }
+
+    public void setFuncionario(Funcionario funcionario){
+        this.funcionario = funcionario;
+    }
+}
+```
+
+```java
+public class Remedio {
+    private int id;
+    private String nome;
+    private java.util.Date validez;
+    private Medicacao[] medicacoes;
+
+    public Remedio(){
+        
+    }
+
+    public void validar(){
+
+    }
+
+    public void cancelar(){
+
+    }
+
+    public void atualizar(){
+
+    }
+
+    public void cadastrar(){
+
+    }
+
+    public void recuperar(){
+        
+    }
+
+    // getters
+    public int getId(){
+        return this.id;
+    }
+
+    public String getNome(){
+        return this.nome;
+    }
+
+    public java.util.Date getValidez(){
+        return this.validez;
+    }
+
+    public Medicacao[] getMedicacoes(){
+        return this.medicacoes;
+    }
+
+    // setters
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+
+    public void setValidez(java.util.Date validez){
+        this.validez = validez;
+    }
+
+    public void setMedicacoes(Medicacao medicacoes[]){
+        this.medicacoes = medicacoes;
+    }
+}
+```
+
+```java
+public class Tratamento {
+    private int id;
+    private String tipo;
+    private String descricao;
+    private int diasNecessarios;
+    private Medicacao medicacoes[];
+    private Animal animal;
+    private Funcionario funcionario;
+
+    public Tratamento(){
+        
+    }
+
+    public void validar(){
+
+    }
+
+    public void cancelar(){
+
+    }
+
+    public void atualizar(){
+
+    }
+
+    public void cadastrar(){
+
+    }
+
+    public void recuperar(){
+        
+    }
+
+    // getters
+    public int getId(){
+        return this.id;
+    }
+
+    public String getTipo(){
+        return this.tipo;
+    }
+
+    public String getDescricao(){
+        return this.descricao;
+    }
+
+    public int getDiasNecessarios(){
+        return this.diasNecessarios;
+    }
+
+    public Medicacao[] getMedicacoes(){
+        return this.medicacoes;
+    }
+
+    public Animal getAnimal(){
+        return this.animal;
+    }
+
+    public Funcionario getFuncionario(){
+        return this.funcionario;
+    }
+
+    // setters
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setTipo(String tipo){
+        this.tipo = tipo;
+    }
+
+    public void setDescricao(String descricao){
+        this.descricao = descricao;
+    }
+
+    public void setDiasNecessarios(int diasNecessarios){
+        this.diasNecessarios = diasNecessarios;
+    }
+
+    public void setMedicacoes(Medicacao medicacoes[]){
+        this.medicacoes = medicacoes;
+    }
+
+    public void setAniamal(Animal animal){
+        this.animal = animal;
+    }
+
+    public void setFuncionario(Funcionario funcionario){
+        this.funcionario = funcionario;
+    }
+}
+```
+
+```java
+public class Medicacao {
+    private int id;
+    private Tratamento tratamento;
+    private Remedio remedio;
+
+    public Medicacao(){
+        
+    }
+
+    public void validar(){
+
+    }
+
+    public void cancelar(){
+
+    }
+
+    public void atualizar(){
+
+    }
+
+    public void cadastrar(){
+
+    }
+
+    public void recuperar(){
+        
+    }
+
+    // getters
+    public int getId(){
+        return this.id;
+    }
+
+    public Tratamento geTratamento(){
+        return this.tratamento;
+    }
+
+    public Remedio getRemedio(){
+        return this.remedio;
+    }
+
+    // setters
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setTratamento(Tratamento tratamento){
+        this.tratamento = tratamento;
+    }
+
+    public void setRemedio(Remedio remedio){
+        this.remedio = remedio;
+    }
+}
+
+```
+
+```java
+public class Planta {
+    private int id;
+    private String nome;
+    private String categoria;
+    private Plantio plantio;
+
+    public Planta(){
+        
+    }
+
+    public Planta(String nome, String categoria){
+        this.nome = nome;
+        this.categoria = categoria;
+    }
+
+    public Planta(String nome, String categoria, Plantio plantio){
+        this.nome = nome;
+        this.categoria = categoria;
+        this.plantio = plantio;
+    }
+
+    // getters
+    public int getId(){
+        return this.id;
+    }
+
+    public String getNome(){
+        return this.nome;
+    }
+
+    public String getCategoria(){
+        return this.categoria;
+    }
+
+    public Plantio getPlantio(){
+        return this.plantio;
+    }
+
+    // setters
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+
+    public void setCategoria(String categoria){
+        this.categoria = categoria;
+    }
+
+    public void setPlantio(Plantio plantio){
+        this.plantio = plantio;
+    }
+}
+```
+
+```java
+public class Plantio {
+    private int id;
+    private java.util.Date ocorrencia;
+    private String status;
+    private Planta[] plantas;
+    private Funcionario funcionario;
+
+    public Plantio(){
+        
+    }
+
+    public void validar(){
+
+    }
+
+    public void cancelar(){
+
+    }
+
+    public void cadastrar(){
+
+    }
+
+    public void atualizar(){
+
+    }
+
+    public void recuperar(){
+
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public java.util.Date getOcorrencia() {
+        return this.ocorrencia;
+    }
+
+    public void setOcorrencia(java.util.Date ocorrencia) {
+        this.ocorrencia = ocorrencia;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Planta[] getPlantas() {
+        return this.plantas;
+    }
+
+    public void setPlantas(Planta[] plantas) {
+        this.plantas = plantas;
+    }
+
+    public Funcionario getFuncionario() {
+        return this.funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
+}
+```
+
+```java
+public class Equipamento {
+    private int id;
+    private String nome;
+    private String categoria;
+
+    public Equipamento(){
+
+    }
+
+    public Equipamento(String nome, String categoria){
+        this.nome = nome;
+        this.categoria = categoria;
+    }
+
+    public void validar(){
+
+    }
+
+    public void cancelar(){
+
+    }
+
+    public void cadastrar(){
+
+    }
+
+    public void atualizar(){
+
+    }
+
+    public void recuperar(){
+
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCategoria() {
+        return this.categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+}
+```
+
+```java
+public class Administrador extends Funcionario{
+    
+    public Administrador(){
+
+    }
+}
+```
 
 ### <a name="java_instantiation">Instanciação
-![instanciação](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/instancias/0_contato_endereco_funcioanrio.jpg)
-![instanciação](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/instancias/1_animal_ordenha.jpg)
-![instanciação](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/instancias/2_estoque_produto.jpg)
-![instanciação](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/instancias/3_varejista_contatovarejista_comercio.jpg)
-![instanciação](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/instancias/4_remedio_tratamento_medicacao.jpg)
-![instanciação](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/instancias/5_planta_plantio.jpg)
-![instanciação](https://github.com/nbilbo/fazentech/blob/master/projeto/java/imgs/instancias/6_equipamento.jpg)
+```java
+import java.util.Date;
+
+public class App {
+    public static void main(String[] args){
+        Date data = new Date();
+        
+        // instanciando um novo funcionário
+        Funcionario funcionario = new Funcionario();
+        funcionario.setNome("Beatriz Paiva");
+        funcionario.setCpf("1234567890-12");
+        funcionario.setContratacao(data);
+
+        // instanciando um novo endereco
+        Endereco endereco = new Endereco();
+        endereco.setRua("Praça Maria Penha Calezani");
+        endereco.setBairro("Mata da Praia");
+        endereco.setCidade("Vitória");
+        endereco.setEstado("ES");
+
+        endereco.setFuncionario(funcionario);
+        funcionario.setEndereco(endereco);
+
+        // instanciando um novo contato
+        Contato contatos[] = {
+            new Contato("Cel", "+5535912345678", funcionario),
+            new Contato("Res", "4000-0000", funcionario)
+        };
+        funcionario.setContatos(contatos);
+        
+        // instanciando um novo animal
+        Animal animal = new Animal();
+        animal.setEspecie("Holstein");
+        animal.setInseminacao(false);
+        animal.setPeso(789.54f);
+        animal.setRuminacao(33);
+
+        // instancia um novo ordenha
+        Ordenha ordenha = new Ordenha();
+        ordenha.setAnimal(animal);
+        ordenha.setFuncionario(funcionario);
+        ordenha.setLitros(20);
+        ordenha.setTemperaturaLeite(20);
+        
+        Ordenha ordenhas[] = {ordenha};
+        animal.setOrdenhas(ordenhas);
+        funcionario.setOrdenhas(ordenhas);
+        
+        // instanciando um novo estoque
+        Estoque estoque = new Estoque();
+        estoque.setQuantidade(0);
+        estoque.setNome("Leite");
+
+        // instanciando um novo produto
+        Produto produto = new Produto();
+        produto.setValidez(data);
+        produto.setPreco(20.00f);
+        produto.setVendido(false);
+        produto.setEstoque(estoque);
+
+        Produto produtos[] = {produto};
+        estoque.setProdutos(produtos);
+
+        // instanciando um novo Varejista
+        Varejista varejista = new Varejista();
+        varejista.setNome("Paula Lima");
+        varejista.setCpf("098765432-10");
+
+        // instanciando um novo ContatoVarejista
+        ContatoVarejista contatoVarejista = new ContatoVarejista();
+        contatoVarejista.setTipo("Com");
+        contatoVarejista.setNumero("4002-4002");
+        contatoVarejista.setVarejista(varejista);
+
+        ContatoVarejista contatosVarejista[] = {contatoVarejista};
+        varejista.setContatos(contatosVarejista);
+
+        // instanciando um novo Comercio
+        Comercio comercio = new Comercio();
+        comercio.setOcorrencia(data);
+        comercio.setProduto(produto);
+        comercio.setVarejista(varejista);
+        produto.setComercio(comercio);
+
+        Comercio comercios[] = {comercio};
+        varejista.setComercios(comercios);
+
+        // instanciando um novo Remedio
+        Remedio remedio = new Remedio();
+        remedio.setNome("Antiviotico");
+        remedio.setValidez(data);
+
+        // instanciando um novo Tratamento
+        Tratamento tratamento = new Tratamento();
+        tratamento.setAniamal(animal);
+        tratamento.setFuncionario(funcionario);
+        tratamento.setTipo("Prevenção");
+        tratamento.setDiasNecessarios(14);
+
+        // instanciando um novo Medicacao
+        Medicacao medicacao = new Medicacao();
+        medicacao.setRemedio(remedio);
+        medicacao.setTratamento(tratamento);
+
+        Medicacao[] medicacoes={medicacao};
+        remedio.setMedicacoes(medicacoes);
+        tratamento.setMedicacoes(medicacoes);
+
+        Tratamento[] tratamentos = {tratamento};
+        animal.setTratamentos(tratamentos);
+        funcionario.setTratamentos(tratamentos);
+        
+        // instanciando um novo Planta
+        Planta planta = new Planta();
+        planta.setNome("Cajú");
+        planta.setCategoria("Árvore Frutífera");
+
+        Planta[] plantas = new Planta[10];
+        plantas[0] = planta;
+
+        // instanciando um novo Plantio
+        Plantio plantio = new Plantio();
+        plantio.setOcorrencia(data);
+        plantio.setStatus("Cadastrado");
+        plantio.setPlantas(plantas);
+        planta.setPlantio(plantio);
+        plantio.setFuncionario(funcionario);
+
+        Plantio[] plantios={plantio};
+        funcionario.setPlantios(plantios);
+
+        // instanciando um novo Equipamento
+        Equipamento equipamento = new Equipamento("Martelo", "Uso geral");
+        System.out.println(equipamento.toString());
+    }
+}
+```
 
 <p><a href="https://github.com/nbilbo/fazentech/tree/master/projeto/java/codigo/src" target="_black">Código completo</a></p>
 
